@@ -210,3 +210,57 @@ ReactDOM.render(
 );
 // judgmental if true will log it 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const people = ['Rowe', 'Prevost', 'Gare'];
+
+const peopleLis = people.map(person =>
+  // expression goes here:
+<li>{person}</li>
+);
+
+// ReactDOM.render goes here:
+ReactDOM.render(<ul>{peopleLis}</ul>, document.getElementById('app'));
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~ loop over to give unique key
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const people = ['Rowe', 'Prevost', 'Gare'];
+
+const peopleLis = people.map((person, i) =>
+  // expression goes here:
+<li key={'person_' + i}>{person}</li>
+);
+
+// ReactDOM.render goes here:
+ReactDOM.render(<ul>{peopleLis}</ul>, document.getElementById('app'));
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~ create the element without using JSX down below 
+
+
+const greatestDivEver = <div>i am div</div>; //change to: 
+
+const greatestDivEver = React.createElement(
+	"div",
+  null,
+  "i am div"
+);
+
+
+const h1 = <h1>Hello world</h1>;
+//can be rewritten without JSX, like this:
+
+const h1 = React.createElement(
+  "h1",
+  null,
+  "Hello, world"
+);
