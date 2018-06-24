@@ -22,3 +22,24 @@ document.getElementById('app')
 import React from 'react';
 // evaluate this variable and get a particular, imported JavaScript object:
 React // { imported object properties here... }
+
+//both import JavaScript objects. In both lines, the imported object contains React-related methods.
+
+//The methods imported from 'react-dom' are meant for interacting with the DOM. You are already familiar with one of them: ReactDOM.render().
+
+//Methods imported from 'react' are only for pure React purposes, such as creating components or writing JSX elements.
+
+//import React from 'react';
+//import ReactDOM from 'react-dom';
+
+
+
+//React component is a small, reusable chunk of code that is responsible for one job, which often involves rendering HTML.
+//every component must come from a component class.
+
+
+//React.Component is a JavaScript class. 
+// To create your own component class, you must subclass React.Component. You can do this by using the syntax class YourComponentNameGoesHere extends React.Component {}.
+
+
+//Class names should be nouns in UpperCamelCase, with the first letter of every word capitalised. Use whole words — avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
