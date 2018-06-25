@@ -48,3 +48,11 @@ React // { imported object properties here... }
 
 // component goes here:
 <MyComponentClass />
+
+
+//To call a component's render method, you pass that component to ReactDOM.render(). Notice your component, being passed as ReactDOM.render()'s first argument:
+
+ReactDOM.render(
+    <MyComponentClass />,
+    document.getElementById('app')
+  );
