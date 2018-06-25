@@ -58,3 +58,63 @@ ReactDOM.render(
 	<QuoteMaker />,
   document.getElementById('app')
 );
+
+// ~~~~~~~~~~~~~~~~~~ variable attribute in a component
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const redPanda = {
+  src: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Endangered_Red_Panda.jpg',
+  alt: 'Red Panda',
+  width:  '200px'
+};
+
+class RedPanda extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Cute Red Panda</h1>
+        <img 
+          src={redPanda.src}
+          alt={redPanda.alt}
+          width={redPanda.width} />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <RedPanda />,
+  document.getElementById('app')
+);
+
+
+//~~~~~~~~~~~~~~~~~ Owl component rendering
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+const owl = {
+  title: 'Excellent Owl',
+  src: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-owl.jpg'
+};
+
+// Component class starts here:
+class Owl extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>{owl.title}</h1>
+        <img 
+          src={owl.src}
+          alt={owl.title}
+          />
+      </div>
+      );
+  }
+};
+
+ReactDOM.render(
+	<Owl />,
+  document.getElementById('app')
+);
