@@ -392,3 +392,28 @@ export class List extends React.Component {
 // ~~~
 // ~~~See if you can figure out how the instances of the List component class are automatically pluralizing their titles!
 
+
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class Button extends React.Component {
+  render() {
+    return (
+      <button>
+        {this.props.text}
+      </button>
+    );
+  }
+}
+
+// defaultProps goes here:
+Button.defaultProps = {
+  text: 'I am a button'
+}
+
+ReactDOM.render(
+  <Button text="" />,    //prop inside button />  text ="" will override the defaultProps
+  document.getElementById('app')
+);
