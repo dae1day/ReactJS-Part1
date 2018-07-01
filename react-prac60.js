@@ -18,3 +18,24 @@ ReactDOM.render(
     document.getElementById('app')
 );
 
+
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+export class ExportableClass extends React.Component {
+    render() {
+        render (
+            <div foo="bar">
+            <h1></h1>
+            </div>
+        );
+    }
+};
+
+
+ReactDOM.render(
+    <ExportableClass />,
+    document.getElementById('app')
+)

@@ -280,3 +280,115 @@ export class Button extends React.Component {
     );
   }
 }
+
+
+
+//~~~~~~this.props.children
+
+import React from 'react';
+import { LilButton } from './LilButton';
+
+class BigButton extends React.Component {
+  render() {
+    console.log(this.props.children);
+    return <button>Yo I am big</button>;
+  }
+}
+
+
+// Example 1
+<BigButton>
+  I am a child of BigButton.
+</BigButton>
+
+
+// Example 2
+<BigButton>
+  <LilButton />
+</BigButton>
+
+
+// Example 3
+<BigButton />
+
+ // Look at BigButton.js. In Example 1, <BigButton>'s this.props.children would equal the text, "I am a child of BigButton."
+//
+ // In Example 2, <BigButton>'s this.props.children would equal a <LilButton /> component.
+//
+ // In Example 3, <BigButton>'s this.props.children would equal undefined.
+
+ import React from 'react';
+import ReactDOM from 'react-dom';
+import { List } from './List';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <List type='Living Musician'>
+          <li>Sachiko M</li>
+          <li>Harvey Sid Fisher</li>
+        </List>
+        <List type='Living Cat Musician'>
+          <li>Nora the Piano Cat</li>
+        </List>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <App />, 
+  document.getElementById('app')
+);
+
+
+//~~~~~~~App.js
+
+import React from 'react';
+
+export class List extends React.Component {
+  render() {
+    let titleText = `Favorite ${this.props.type}`;
+    if (this.props.children instanceof Array) {
+    	titleText += 's';
+    }
+    return (
+      <div>
+        <h1>{titleText}</h1>
+        <ul>{this.props.children}</ul>
+      </div>
+    );
+  }
+}
+
+//~~~~~~~~~~~List.js
+
+
+// ~~~Select App.js.
+// ~~~
+// ~~~Notice that App renders two <List><List /> instances, and that each <List><List /> has at least one <li></li> child.
+// ~~~
+// ~~~Now open List.js, and take a look at the List component class.
+// ~~~
+// ~~~Think about the fact that each List instance is going to be rendered with two JSX tags:
+// ~~~
+// ~~~<List>  // opening tag
+// ~~~</List> // closing tag
+// ~~~...and that there will be at least one <li></li> child in between those tags:
+// ~~~
+// ~~~<List>  // opening tag
+// ~~~  <li></li> // child
+// ~~~</List> // closing tag
+// ~~~Click Run.
+// ~~~
+// ~~~2.
+// ~~~You can see two list titles in the browser, but no list items! How can you make the list-items appear?
+// ~~~
+// ~~~In List.js, in the render function, in between <ul></ul> tags, add {this.props.children}.
+// ~~~
+// ~~~3.
+// ~~~BONUS: Each <List><List /> instance is passed a singular title: "Living Musician" and "Living Cat Musician," respectively. Somehow, each <List><List /> counts its list-items and automatically adds an "s" to the end of its title if the count is greater than one. We could add a second piano cat, and the second list title would automatically pluralize.
+// ~~~
+// ~~~See if you can figure out how the instances of the List component class are automatically pluralizing their titles!
+
